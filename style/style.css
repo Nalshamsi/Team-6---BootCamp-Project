@@ -1,0 +1,40 @@
+.heder-card{
+    color: #297373;
+    margin-bottom: 75px;  
+    margin-top: 75px; 
+  margin-left: 650px;
+}
+.Contener{
+display: flex;
+flex-direction: row;
+justify-content: space-evenly;
+margin-bottom: 5rem;
+}
+img{
+    height:250px;
+    margin: 3px;
+    border-radius: 6px;
+}
+/* .shadow{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+} */
+.shadow { 
+    transition: all .2s ease-in-out; 
+    }
+    .shadow:hover { 
+    transform: scale(1.1); 
+    }
+    .title{
+        color: #297373;
+    }
+    .text{
+        color: #39393A;
+    }
+    .bttton{
+        background-color:#297373 ;
+        border: none;
+        border-radius: 3px;
+        width: 350px;
+        height: 43px;
+        color: white;
+    }
