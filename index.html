@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html class="no-js" lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Project</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Include Bootstrap Css -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <!-- Include Animate Min Css -->
+    <link rel="stylesheet" href="assets/css/animate.min.css" />
+    <!-- bxSlider CSS file -->
+    <link href="assets/css/jquery.bxslider.css" rel="stylesheet" />
+    <!-- Include Style Css -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <!-- Header Section -->
+    <!-- Nasreen -->
+    <!-- Header Section -->
+
+    <!-- Main Slider -->
+    <section id="main-slider" class="main-slider text-center">
+      <div class="head-overlay">
+        <ul class="bxslider">
+          <li>
+            <div class="head-overlay">
+              <img src="images/slider/1.jpg" />
+            </div>
+            <!-- /.head-overlay -->
+            <div class="slider-text">
+              <div class="slide-inner">
+                <h2
+                  class="slider-title"
+                  data-animation="wow animated bounceInDown"
+                >
+                  Welcome to <span>In Progress</span>
+                </h2>
+                <p class="slide-description">Ready for an Adventure?</p>
+                <div class="slide-btn-container">
+                  <a class="btn">Let's Go!</a>
+                </div>
+                <!-- /.slide-btn-container -->
+              </div>
+              <!-- /.slide-inner -->
+            </div>
+            <!-- /.slider-text -->
+          </li>
+          <li>
+            <div class="head-overlay">
+              <img src="images/slider/3.jpg" />
+            </div>
+            <!-- /.head-overlay -->
+            <div class="slider-text">
+              <div class="slide-inner">
+                <h2
+                  class="slider-title"
+                  data-animation="wow animated bounceInDown"
+                >
+                  Welcome to <span>In Progress</span>
+                </h2>
+                <p class="slide-description">Ready for an Adventure?</p>
+                <div class="slide-btn-container">
+                  <a class="btn">Let's Go!</a>
+                </div>
+                <!-- /.slide-btn-container -->
+              </div>
+              <!-- /.slide-inner -->
+            </div>
+            <!-- /.slider-text -->
+          </li>
+        </ul>
+      </div>
+      <!-- /.head-overlay -->
+    </section>
+
+    <!-- Activites Section -->
+    <!-- Jamelah -->
+
+    <!-- Footer Section -->
+    <!-- Nasreen -->
+
+    <!-- Include jQuery Js -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+    <!-- Include Waypoint Js ?????????-->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+
+    <!-- Include Custom Js </-->
+    <script src="assets/js/custom.min.js"></script>
+
+    <script>
+      $(".bxslider").bxSlider({
+        auto: !0,
+        preloadImages: "all",
+        mode: "horizontal",
+        captions: !1,
+        controls: !0,
+        pause: 4000,
+        speed: 1200,
+        onSliderLoad: function () {
+          $(".bxslider>li .slide-inner").eq(1).addClass("active-slide"),
+            $(".slide-inner.active-slide .slider-title").addClass(
+              "wow animated bounceInDown"
+            ),
+            $(".slide-inner.active-slide .slide-description").addClass(
+              "wow animated bounceInRight"
+            ),
+            $(".slide-inner.active-slide .btn").addClass(
+              "wow animated zoomInUp"
+            );
+        },
+        onSlideAfter: function (e, i, n) {
+          console.log(n),
+            $(".active-slide").removeClass("active-slide"),
+            $(".bxslider>li .slide-inner")
+              .eq(n + 1)
+              .addClass("active-slide"),
+            $(".slide-inner.active-slide").addClass(
+              "wow animated bounceInRight"
+            );
+        },
+        onSlideBefore: function () {
+          $(".slide-inner.active-slide").removeClass(
+            "wow animated bounceInRight"
+          ),
+            $(".one.slide-inner.active-slide").removeAttr("style");
+        },
+      });
+    </script>
+  </body>
+</html>
