@@ -4,7 +4,7 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 
 const activitiesRoute = require("./routes/activities-route.js");
-
+const loginRoute= require("./routes/login-route");
 // Configure middleware for express
 server.use(bodyParser.urlencoded({ extended: false }));
 server.use(bodyParser.json());
@@ -32,6 +32,12 @@ server.get("/", function (req, res) {
 
 server.use("/activities", activitiesRoute);
 
+// login
+server.use("/login",loginRoute );
+
+
 server.listen(3001, function () {
   console.log("Running on http://localhost:3001/");
 });
+
+
