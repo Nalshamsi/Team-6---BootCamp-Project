@@ -7,6 +7,9 @@ router.post('/reg',
 function(req, res) {
 
     let newDocument = {
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        phone: req.body.phone,
         email: req.body.email,
         password: req.body.password,
         confirmpass: req.body.confirmpass,

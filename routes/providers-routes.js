@@ -7,9 +7,10 @@ router.post('/reg',
 function(req, res) {
 
     let newDocument = {
+        brandName:req.body.brandName,
+        phone: req.body.phone,
         email: req.body.email,
         password: req.body.password,
-        confirmpass: req.body.confirmpass,
     };
 
     ProviderModel
