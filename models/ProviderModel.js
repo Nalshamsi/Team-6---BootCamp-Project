@@ -3,13 +3,9 @@ const mongoose = require('mongoose');
 //Schema
 const ProviderSchema = new mongoose.Schema(
     {
-        firstName: {
+        brandName: {
             type: String,
-            required: false,
-        },
-        lastName: {
-            type: String,
-            required: false,
+            required: true,
         },
         email: {
             type: String,
@@ -17,7 +13,7 @@ const ProviderSchema = new mongoose.Schema(
         },
         phone: {
             type: String,
-            required: false,
+            required: true,
         },
         password: {
             type: String,
@@ -36,10 +32,6 @@ const ProviderSchema = new mongoose.Schema(
             required: true,
             default: Date.now
         },
-        subscription: {
-            type: Boolean,
-            required: false,
-        } 
     }
 );
 
