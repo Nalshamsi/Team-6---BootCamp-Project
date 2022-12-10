@@ -2,15 +2,24 @@
   "name": "final-project",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "script.js",
   "scripts": {
     "start": "node server.js",
     "start-dev": "nodemon server.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nalshamsi/Team-6---BootCamp-Project.git"
+  },
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nalshamsi/Team-6---BootCamp-Project/issues"
+  },
+  "homepage": "https://github.com/Nalshamsi/Team-6---BootCamp-Project#readme",
   "dependencies": {
-    "dotenv": "^16.0.3",
+    "@material-ui/core": "^4.12.4",
+    "axios": "^1.2.1",
     "express": "^4.18.2",
     "mongoose": "^6.7.5",
     "nodemon": "^2.0.20"
