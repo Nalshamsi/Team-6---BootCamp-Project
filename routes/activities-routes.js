@@ -13,6 +13,7 @@ function(req, res) {
         duration: req.body.duration,
         date: req.body.date,
         location: req.body.location,
+        gender:  req.body.gender,
     };
 
     ActivityModel

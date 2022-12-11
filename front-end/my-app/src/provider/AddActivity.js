@@ -13,6 +13,9 @@ import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 
 const theme = createTheme();
 
@@ -22,7 +25,7 @@ export default function AddActivity() {
   const [description, setDescription] = React.useState("farhan");
   const [city, setCity] = React.useState("jamelah@gmail.com");
   const [duration, setDuration] = React.useState("123123");
-  const [date, setDate] = React.useState("22-10-2020");
+  const [date, setDate] = React.useState(null);
   const [location, setLocation] = React.useState(null);
   const [gender, setGender] = React.useState("female");
 
@@ -38,27 +41,29 @@ export default function AddActivity() {
     // console.log(duration);
     // console.log(date);
     // console.log(location);
-    console.log(gender);
-    //   try {
-    //  const data= await axios.post(`http://localhost:3007/update${id}`,
-    // {
-    //     firstName:firstName,
-    //     lastName:lastName,
-    //     email:email,
-    //     phone:phone,
-    //     dob:dob,
-    //     password,password
+    // console.log(gender);
 
-    // }
-    // );
-    // const copyArray=[...user]
-    // copyArray[i]=data.data
-    // setUser(copyArray)
-    // console.log(copyArray);
+      try {
+     const data= await axios.post(`http://localhost:3007/activities/add`,
+    {
+      title: title,
+      description: description,
+      city: city,
+      duration: duration,
+      date: date,
+      location: location,
+      gender: gender,
 
-    //   } catch (error) {
-    //     console.log(error, 'catch error');
-    //   }
+    }
+    );
+    const copyArray=[...user]
+    copyArray[i]=data.data
+    setUser(copyArray)
+    console.log(copyArray);
+
+      } catch (error) {
+        console.log(error, 'catch error');
+      }
   };
 
   return (
@@ -99,9 +104,11 @@ export default function AddActivity() {
             />
             <TextField
               onChange={(event) => setDescription(event.target.value)}
+              multiline
+              maxRows={4}
               margin="normal"
               fullWidth
-              id="description"
+              id="outlined-multiline-static"
               label="Description"
               name="description"
               autoComplete="description"
@@ -127,16 +134,27 @@ export default function AddActivity() {
               autoFocus
             />
 
-            <TextField
-              onChange={(event) => setDate(event.target.value)}
-              margin="normal"
-              fullWidth
-              id="date"
-              label="Data"
-              name="date"
-              autoComplete="date"
-              autoFocus
-            />
+            <LocalizationProvider dateAdapter={AdapterDayjs}>
+              <DatePicker
+                label="Data"
+                value={date}
+                onChange={(newValue) => {
+                  setDate(newValue);
+                }}
+                renderInput={(params) => (
+                  <TextField
+                    margin="normal"
+                    fullWidth
+                    id="date"
+                    name="date"
+                    autoComplete="date"
+                    autoFocus
+                    {...params}
+                  />
+                )}
+              />
+            </LocalizationProvider>
+
             <TextField
               onChange={(event) => setLocation(event.target.value)}
               margin="normal"
@@ -148,7 +166,7 @@ export default function AddActivity() {
               autoFocus
             />
 
-            <FormControl>
+            <FormControl sx={{ mt: 2 }}>
               <FormLabel id="demo-controlled-radio-buttons-group">
                 Gender
               </FormLabel>
@@ -175,8 +193,9 @@ export default function AddActivity() {
             <Button
               type="submit"
               fullWidth
+              size="large"
               variant="contained"
-              sx={{ mt: 3, mb: 2 }}
+              sx={{ mt: 5 }}
             >
               Add
             </Button>
