@@ -31,7 +31,13 @@ export default function SignOut() {
               type="submit"
               fullWidth
               variant="contained"
+             
               sx={{ mt: 25, mb: 2 }}
+              style={{
+               
+                backgroundColor: "#297373",
+               
+            }}
             >
               Sign Out
             </Button>

@@ -67,10 +67,10 @@ console.log(copyArray);
             alignItems: 'center',
           }}k
         >
-          <Avatar  sx={{ m: 1, bgcolor: 'primary.main' }}>
-      
+          <Avatar  sx={{ m: 1, bgcolor: '#297373' }}>
+       
           </Avatar>
-          <Typography component="h1" variant="h5">
+          <Typography component="h1" variant="h5" color={'#39393A'}>
           Update your information
           </Typography>
           <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
@@ -84,6 +84,7 @@ console.log(copyArray);
               name="firstName"
               autoComplete="firstName"
               autoFocus
+            
             />
              <TextField
              onChange={(event)=>setLastName(event.target.value)}
@@ -114,6 +115,7 @@ console.log(copyArray);
               name="phone"
               autoComplete="phone"
               autoFocus
+              // type={'number'}
             />
           
 
@@ -122,10 +124,11 @@ onChange={(event)=>setDob(event.target.value)}
               margin="normal"
               fullWidth
               id="dob"
-              label="Data Of Barth"
+           
               name="dob"
               autoComplete="dob"
               autoFocus
+              type={'date'}
             />
                <TextField
                onChange={(event)=>setPassword(event.target.value)}
@@ -136,6 +139,11 @@ onChange={(event)=>setDob(event.target.value)}
               name="password"
               autoComplete="password"
               autoFocus
+            //   style={{
+           
+            //     border: 'solid 1px #297373',
+               
+            // }} 
             />
           
           
@@ -144,6 +152,11 @@ onChange={(event)=>setDob(event.target.value)}
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
+              style={{
+               
+                backgroundColor: "#297373",
+               
+            }}
             >
             
             Update

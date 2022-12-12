@@ -6,9 +6,9 @@ import UpdateUser from "./authentication/UpdateUser"
 function App() {
   return (
     <div >
-    {/* <SignOut/>  */}
-    {/* <SignIn/>  */}
-    <UpdateUser/>
+    {/* <SignOut/>   */}
+    <SignIn/>   
+    {/* <UpdateUser/>  */}
    
     </div>
   );

@@ -52,10 +52,10 @@ export default function SignIn() {
             alignItems: 'center',
           }}k
         >
-          <Avatar sx={{ m: 1, bgcolor: 'primary.main' }}>
+          <Avatar sx={{ m: 1, bgcolor: '#297373' }}>
       
           </Avatar>
-          <Typography component="h1" variant="h5">
+          <Typography component="h1" variant="h5" color={'#39393A'}>
             Sign in
           </Typography>
           <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
@@ -79,26 +79,40 @@ export default function SignIn() {
               id="password"
               autoComplete="current-password"
             />
-            <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
+            {/* <FormControlLabel
+              control={<Checkbox value="remember" color="#297373" />}
               label="Remember me"
-            />
+            /> */}
             <Button
               type="submit"
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
+              style={{
+               
+                backgroundColor: "#297373",
+               
+            }}
             >
               Sign In
             </Button>
             <Grid container>
               <Grid item xs>
-                <Link href="#" variant="body2">
+                <Link href="#" variant="body2" style={{
+               
+               color: "#297373",
+              
+           }}>
+                  
                   Forgot password?
                 </Link>
               </Grid>
               <Grid item>
-                <Link href="#" variant="body2">
+                <Link href="#" variant="body2"  style={{
+               
+               color: "#297373",
+              
+           }}>
                   {"Don't have an account? Sign Up"}
                 </Link>
               </Grid>
