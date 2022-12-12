@@ -1,5 +1,4 @@
 import * as React from "react";
-import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
@@ -43,27 +42,27 @@ export default function AddActivity() {
     // console.log(location);
     // console.log(gender);
 
-      try {
-     const data= await axios.post(`http://localhost:3007/activities/add`,
-    {
-      title: title,
-      description: description,
-      city: city,
-      duration: duration,
-      date: date,
-      location: location,
-      gender: gender,
+    try {
+      const data = await axios.post(`http://localhost:3007/activities/add`,
+        {
+          title: title,
+          description: description,
+          city: city,
+          duration: duration,
+          date: date,
+          location: location,
+          gender: gender,
 
+        }
+      );
+      const copyArray = [...user]
+      copyArray[i] = data.data
+      setUser(copyArray)
+      console.log(copyArray);
+
+    } catch (error) {
+      console.log(error, 'catch error');
     }
-    );
-    const copyArray=[...user]
-    copyArray[i]=data.data
-    setUser(copyArray)
-    console.log(copyArray);
-
-      } catch (error) {
-        console.log(error, 'catch error');
-      }
   };
 
   return (
@@ -83,7 +82,7 @@ export default function AddActivity() {
           {/* <Avatar  sx={{ m: 1, bgcolor: 'primary.main' }}>
       
           </Avatar> */}
-          <Typography component="h1" variant="h5">
+          <Typography component="h1" variant="h5" color={'#39393A'}>
             Add New Activity
           </Typography>
           <Box
@@ -165,7 +164,7 @@ export default function AddActivity() {
               name="location"
               autoComplete="location"
               autoFocus
-             
+
             />
 
             <FormControl sx={{ mt: 2 }}>
@@ -198,6 +197,9 @@ export default function AddActivity() {
               size="large"
               variant="contained"
               sx={{ mt: 5 }}
+              style={{
+                backgroundColor: "#297373",
+              }}
             >
               Add
             </Button>
