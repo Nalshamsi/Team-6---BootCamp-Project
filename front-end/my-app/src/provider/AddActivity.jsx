@@ -159,11 +159,13 @@ export default function AddActivity() {
               onChange={(event) => setLocation(event.target.value)}
               margin="normal"
               fullWidth
+              color='info'
               id="location"
               label="Location"
               name="location"
               autoComplete="location"
               autoFocus
+             
             />
 
             <FormControl sx={{ mt: 2 }}>
