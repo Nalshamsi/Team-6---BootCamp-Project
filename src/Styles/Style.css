@@ -1,0 +1,108 @@
+/* Nasreen */
+/* Header */
+    /* Create a sticky/fixed navbar */
+    #navbar {
+        overflow: hidden;
+        background-color: rgba(41, 115, 115, .9);
+        padding: 30px 10px; /* Large padding which will shrink on scroll (using JS) */
+        transition: 0.4s; /* Adds a transition effect when the padding is decreased */
+        position: fixed; /* Sticky/fixed navbar */
+        width: 100%;
+        top: 0; /* At the top */
+        z-index: 99;
+    }
+    
+    /* Style the navbar links */
+    #navbar a {
+        float: left;
+        color: black;
+        text-align: center;
+        padding: 12px;
+        text-decoration: none;
+        font-size: 18px;
+        line-height: 25px;
+        border-radius: 4px;
+    }
+    
+    /* Style the logo */
+    #navbar #logo {
+        font-size: 35px;
+        font-weight: bold;
+        transition: 0.4s;
+    }
+    
+    /* Links on mouse-over */
+    #navbar a:hover {
+        background-color: #ddd;
+        color: black;
+    }
+    
+    /* Style the active/current link */
+    #navbar a.active {
+        background-color: #E9D758;
+        color: #222222;
+    }
+    
+    /* Display some links to the right */
+    #navbar-right {
+        float: right;
+    }
+    
+    /* Add responsiveness - on screens less than 580px wide, display the navbar vertically instead of horizontally */
+    @media screen and (max-width: 580px) {
+        #navbar {
+        padding: 20px 10px !important; /* Use !important to make sure that JavaScript doesn't override the padding on small screens */
+        }
+        #navbar a {
+        float: none;
+        display: block;
+        text-align: left;
+        }
+        #navbar-right {
+        float: none;
+        }
+    }
+
+/* Deemah */
+/* Main Slider */
+
+    /* #carousel-item {
+        height: 50%;
+
+    }
+    .img1, .img2 {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(./Images/1.jpg);
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(./Images/3.jpg);
+    } 
+
+    .carousel-caption {
+        text-align: center;
+        position: absolute;
+        right: 15%;
+        left: 15%;
+        bottom: 1.25rem;
+        top: 60%;
+        transform: translateY(-50%);
+        color:white;
+    }
+    .carousel-title {
+        font-size: calc(2rem + 1.5vw);
+    }
+    .carousel-title span {
+        color: #E9D758;
+    }
+    .button{
+        background-color:#297373 ;
+        border: none;
+        border-radius: 3px;
+        width: 300px;
+        height: 43px;
+        color: white;
+        align-items: center;
+        justify-content: center;
+    }
+    .card-img {
+        width: 100%;
+        height: 15vw;
+        object-fit: cover;
+    } */
