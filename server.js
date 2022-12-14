@@ -1,22 +1,20 @@
+
 const express = require('express');
 const server = express();
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-// require('dotenv').config();
+require('dotenv').config();
 
 const usersRoutes = require('./routes/users-routes.js');
 const providersRoutes = require('./routes/providers-routes.js');
-const activitiesRoutes = require('./routes/activities-route');
+const activitiesRoutes = require('./routes/activities-routes.js');
 
 
 // Configure middleware for express
 server.use( bodyParser.urlencoded( {extended: false}) );
 server.use( bodyParser.json() );
 
-
-
-const dbURL =
-  "mongodb+srv://admin01:psx12345@cluster0.iadzvvg.mongodb.net/?retryWrites=true&w=majority";
+const dbURL = process.env.DB_URL;
 
 const dbConfig = {
     'useNewUrlParser': true,
@@ -48,8 +46,9 @@ server.use('/activities', activitiesRoutes);
 
 
 server.listen(
-    // process.env.PORT,
+    process.env.PORT,
     function() {
-        console.log('Running on http://localhost:3007/')
+        console.log('Running on http://localhost:3001/')
     }
 );
+>>>>>>> main

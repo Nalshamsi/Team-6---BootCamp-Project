@@ -52,7 +52,11 @@ function(req, res) {
 }
 );
 
+
 router.put('update', 
+
+router.put('/updateusers', 
+
     function(req, res) {
     UserModel
     .findOneAndUpdate(
@@ -60,12 +64,14 @@ router.put('update',
             _id: req.body._id,
         },
           {
+
             firstName: req.body.firstName,
             lastName: req.body.lastName,
             email: req.body.email,
             phone: req.body.phone,
             password: req.body.password,
        
+
           },
           { new: true }
     )
@@ -85,5 +91,5 @@ router.put('update',
   }
   );
 
- 
+
 module.exports = router;

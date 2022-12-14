@@ -50,4 +50,40 @@ function(req, res) {
 }
 );
 
+<<<<<<< HEAD
+=======
+router.put('/updateproviders', 
+  function(req, res) {
+  ProviderModel
+  .findOneAndUpdate(
+      {
+          _id: req.body._id,
+      },
+        {
+          title: req.body.title,
+          description: req.body.description,
+          city: req.body.city,
+          duration: req.body.duration,
+          date: req.body.date,
+          location: req.body.location,
+        },
+        { new: true }
+  )
+  .then(
+      function(dbDocument) {
+          res.json(dbDocument)
+      }
+  )
+  .catch(
+      function(error) {
+
+          console.log('/updateproviders error', error);
+          
+          res.send('An error occured.');
+      }
+  )
+}
+);
+
+>>>>>>> main
 module.exports = router;
