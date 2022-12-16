@@ -9,7 +9,7 @@ import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 
 
-function RegistrationScreen() {
+function RegistrationPage() {
 
     // The states are: 
     // (1) null, (2) "client error", (3) "loading", (4) "backend error", (5) "success"
@@ -244,4 +244,4 @@ function RegistrationScreen() {
 
 }
 
-export default RegistrationScreen;
+export default RegistrationPage;

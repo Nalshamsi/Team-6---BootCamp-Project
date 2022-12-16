@@ -4,15 +4,21 @@ import HomeScreen from './HomeScreen';
 import RegistrationScreen from './RegistrationScreen';
 import LayoutRoute from './LayoutRoute';
 import GuestLayoutRoute from './GuestLayoutRoute';
-import SignIn from './SignIn';
+import AboutScreen from './ActivitiesScreen';
+import { Login } from '@mui/icons-material';
+import LoginS from './LoginS'
+import RegisterS from './RegisterS';
+import ActivitiesScreen from './ActivitiesScreen';
+
 
 function App() {
     return(
         <BrowserRouter>
             <Switch>
                 <LayoutRoute path="/" exact={true} component={HomeScreen} />
-                <GuestLayoutRoute path="/register" exact={true} component={RegistrationScreen} />
-                <GuestLayoutRoute path="/sign-in" exact={true} component={SignIn} />
+                <LayoutRoute path="/activity" exact={true} component={ActivitiesScreen} />
+                <GuestLayoutRoute path="/login" exact={true} component={LoginS} />
+                <GuestLayoutRoute path="/register" exact={true} component={RegisterS} />
             </Switch>
         </BrowserRouter>
     )

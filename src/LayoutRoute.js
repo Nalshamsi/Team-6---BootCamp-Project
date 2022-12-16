@@ -2,7 +2,6 @@ import React from 'react';
 import Box from '@mui/material/Box';
 import { Route } from 'react-router-dom';
 import Navbar from './Navbar';
-import Footer from './Footer';
 
 
 function LayoutRoute(props) {
@@ -14,7 +13,6 @@ function LayoutRoute(props) {
           }}>
             <Navbar {...props}/>
             <Route path={props.path} exact={props.exact} component={props.component} />
-            <Footer/>
         </Box>
     )
 }
