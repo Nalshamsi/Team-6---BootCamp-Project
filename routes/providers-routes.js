@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const ProviderModel = require('../models/ProviderModel.js');
+const ProviderModel = require('../backend/models/ProviderModel.js');
 
 router.post('/reg',
 function(req, res) {

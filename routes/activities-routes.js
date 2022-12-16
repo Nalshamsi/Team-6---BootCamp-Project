@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const ActivityModel = require('../models/ActivityModel.js');
+const ActivityModel = require('../backend/models/ActivityModel.js');
 
 router.post('/add',
 function(req, res) {
