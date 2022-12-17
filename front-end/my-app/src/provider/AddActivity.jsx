@@ -43,7 +43,7 @@ export default function AddActivity() {
     // console.log(gender);
 
     try {
-      const data = await axios.post(`http://localhost:3007/activities/add`,
+      const response = await axios.post(`http://localhost:3007/activities/add${id}`,
         {
           title: title,
           description: description,
@@ -55,12 +55,13 @@ export default function AddActivity() {
 
         }
       );
-      const copyArray = [...user]
-      copyArray[i] = data.data
-      setUser(copyArray)
-      console.log(copyArray);
+      // const copyArray = [...user]
+      // copyArray[i] = response.data
+      // setUser(copyArray)
+      console.log(response);
 
     } catch (error) {
+
       console.log(error, 'catch error');
     }
   };
@@ -135,7 +136,7 @@ export default function AddActivity() {
 
             <LocalizationProvider dateAdapter={AdapterDayjs}>
               <DatePicker
-                label="Data"
+                label="Date"
                 value={date}
                 onChange={(newValue) => {
                   setDate(newValue);
