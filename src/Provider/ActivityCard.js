@@ -20,6 +20,10 @@ const useStyles = makeStyles({
     display: "flex",
     flexDirection: "row",
   },
+  description: {
+    color: "#39393A",
+    marginBottom: 10,
+  },
   titles: {
     fontWeight: "bold",
     color: "#297373",
@@ -30,7 +34,7 @@ const useStyles = makeStyles({
   button: {
     color: "white",
     backgroundColor: "#297373",
-    opacity: "50%",
+    opacity: "70%",
   },
 });
 
@@ -48,7 +52,12 @@ function ActivityCard(props) {
         <Typography gutterBottom variant="h5" component="h2">
           {props.product.title}
         </Typography>
-        <Typography variant="body3" color="textSecondary" component="p">
+        <Typography
+          variant="body3"
+          color="textSecondary"
+          component="p"
+          className={classes.description}
+        >
           {props.product.description}
         </Typography>
         <div className={classes.details}>
@@ -67,6 +76,24 @@ function ActivityCard(props) {
             className={classes.texts}
           >
             {props.product.city}
+          </Typography>
+        </div>
+        <div className={classes.details}>
+          <Typography
+            variant="body2"
+            color="textSecondary"
+            component="p"
+            className={classes.titles}
+          >
+            Location:
+          </Typography>
+          <Typography
+            variant="body2"
+            color="textSecondary"
+            component="p"
+            className={classes.texts}
+          >
+            {props.product.location}
           </Typography>
         </div>
         <div className={classes.details}>
