@@ -19,16 +19,14 @@ const useStyles = makeStyles({
 });
 
 function ActivityCard(props) {
-
   const classes = useStyles();
 
-  
   return (
     <Card className={classes.root}>
       <CardActionArea>
         <CardMedia
           className={classes.media}
-          image={props.product.images[1]}
+          image={null}
           title="Contemplative Reptile"
         />
         <CardContent>
@@ -39,17 +37,20 @@ function ActivityCard(props) {
             {props.product.description}
           </Typography>
           <Typography variant="body3" color="textSecondary" component="p">
-            {props.product.price}
+            {props.product.city}
           </Typography>
         </CardContent>
       </CardActionArea>
       <CardActions>
         <Button size="small" color="primary">
+          Apply
+        </Button>
+        {/* <Button size="small" color="primary">
           Edit
         </Button>
         <Button size="small" color="primary">
           View Applicants
-        </Button>
+        </Button> */}
       </CardActions>
     </Card>
   );
