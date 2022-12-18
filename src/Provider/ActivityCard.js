@@ -16,6 +16,22 @@ const useStyles = makeStyles({
   media: {
     height: 140,
   },
+  details: {
+    display: "flex",
+    flexDirection: "row",
+  },
+  titles: {
+    fontWeight: "bold",
+    color: "#297373",
+  },
+  texts: {
+    paddingLeft: "5px",
+  },
+  button: {
+    color: "white",
+    backgroundColor: "#297373",
+    opacity: "50%",
+  },
 });
 
 function ActivityCard(props) {
@@ -23,26 +39,76 @@ function ActivityCard(props) {
 
   return (
     <Card className={classes.root}>
-      <CardActionArea>
-        <CardMedia
+      {/* <CardMedia
           className={classes.media}
           image={null}
           title="Contemplative Reptile"
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
-            {props.product.title}
+        /> */}
+      <CardContent>
+        <Typography gutterBottom variant="h5" component="h2">
+          {props.product.title}
+        </Typography>
+        <Typography variant="body3" color="textSecondary" component="p">
+          {props.product.description}
+        </Typography>
+        <div className={classes.details}>
+          <Typography
+            variant="body2"
+            color="textSecondary"
+            component="p"
+            className={classes.titles}
+          >
+            City:
           </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-            {props.product.description}
-          </Typography>
-          <Typography variant="body3" color="textSecondary" component="p">
+          <Typography
+            variant="body2"
+            color="textSecondary"
+            component="p"
+            className={classes.texts}
+          >
             {props.product.city}
           </Typography>
-        </CardContent>
-      </CardActionArea>
+        </div>
+        <div className={classes.details}>
+          <Typography
+            variant="body2"
+            color="textSecondary"
+            component="p"
+            className={classes.titles}
+          >
+            Duration:
+          </Typography>
+          <Typography
+            variant="body2"
+            color="textSecondary"
+            component="p"
+            className={classes.texts}
+          >
+            {props.product.duration}
+          </Typography>
+        </div>
+        <div className={classes.details}>
+          <Typography
+            variant="body2"
+            color="textSecondary"
+            component="p"
+            className={classes.titles}
+          >
+            Date:
+          </Typography>
+          <Typography
+            variant="body2"
+            color="textSecondary"
+            component="p"
+            className={classes.texts}
+          >
+            {props.product.date}
+          </Typography>
+        </div>
+      </CardContent>
+
       <CardActions>
-        <Button size="small" color="primary">
+        <Button variant="contained" size="small" className={classes.button}>
           Apply
         </Button>
         {/* <Button size="small" color="primary">

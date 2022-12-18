@@ -61,7 +61,7 @@ function ActivitiesScreen() {
       <header className="d-flex justify-content-center py-3 mb-5"></header>
 
       <main>
-        <section className="py-5 text-center container">
+        <section className="py-3 text-center container">
           <div className="row py-lg-5">
             <div className="col-lg-6 col-md-8 mx-auto">
               <h1 className="fw-light">Activities</h1>
