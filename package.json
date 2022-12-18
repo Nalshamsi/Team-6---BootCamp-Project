@@ -16,6 +16,7 @@
     "bcryptjs": "^2.4.3",
     "bootstrap": "^5.2.3",
     "cloudinary": "^1.33.0",
+    "date-fns": "^2.29.3",
     "hero-carousel": "^1.1.2",
     "jsonwebtoken": "^8.5.1",
     "mdb-react-ui-kit": "^5.0.0",

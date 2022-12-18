@@ -5,6 +5,7 @@ import CardActionArea from "@material-ui/core/CardActionArea";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
+import { format } from "date-fns";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 
@@ -41,6 +42,8 @@ const useStyles = makeStyles({
 function ActivityCard(props) {
   const classes = useStyles();
 
+  var date = new Date(props.product.date);
+  var formattedDate = format(date, "dd/MM/yyyy");
   return (
     <Card className={classes.root}>
       {/* <CardMedia
@@ -129,7 +132,7 @@ function ActivityCard(props) {
             component="p"
             className={classes.texts}
           >
-            {props.product.date}
+            {formattedDate}
           </Typography>
         </div>
       </CardContent>
