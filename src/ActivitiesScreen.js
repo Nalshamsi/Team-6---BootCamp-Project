@@ -2,9 +2,10 @@ import { Link } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import ActivityCard from "./Provider/ActivityCard";
+import { Grid } from "@material-ui/core";
 
 function ActivitiesScreen() {
-  const url = "https://dummyjson.com/products?limit=10";
+  const url = "http://localhost:3001/activities/find";
   const [products, setProducts] = useState({
     loading: false,
     data: null,
@@ -18,7 +19,7 @@ function ActivitiesScreen() {
       error: false,
     });
     axios
-      .get(url)
+      .post(url)
       .then((response) => {
         setProducts({
           loading: false,
@@ -47,10 +48,12 @@ function ActivitiesScreen() {
   }
 
   if (products.data) {
-    content = products.data.products.map((product) => (
-      <div key={product.id}>
-        <ActivityCard product={product} />
-      </div>
+    content = products.data.map((product) => (
+      <Grid item xs={12} sm={6} md={3}>
+        <div key={product.id}>
+          <ActivityCard product={product} />
+        </div>
+      </Grid>
     ));
   }
   return (
@@ -66,9 +69,12 @@ function ActivitiesScreen() {
           </div>
         </section>
 
-        <div className="album py-5 bg-light">
-          <div className="container">{content}</div>
-        </div>
+        {/* <div className="album py-5 bg-light"> */}
+        <Grid container spacing={1}>
+          {content}
+        </Grid>
+        {/* <div className="row-sm-4">{content}</div> */}
+        {/* </div> */}
       </main>
 
       <footer className="text-muted py-5">
