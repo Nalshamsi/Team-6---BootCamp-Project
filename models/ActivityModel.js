@@ -41,7 +41,7 @@ const ActivitySchema = new mongoose.Schema({
   },
   providerID: {
     type: String,
-    required: false,
+    required: true,
   },
 });
 

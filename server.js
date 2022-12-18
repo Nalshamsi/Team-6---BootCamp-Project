@@ -6,7 +6,7 @@ require("dotenv").config();
 
 const usersRoutes = require("./routes/users-routes.js");
 const providersRoutes = require("./routes/providers-routes.js");
-const activitiesRoutes = require("./routes/activities-route");
+const activitiesRoutes = require("./routes/activities-routes");
 
 // Configure middleware for express
 server.use(bodyParser.urlencoded({ extended: false }));
@@ -29,6 +29,10 @@ mongoose
   .catch(function (dbError) {
     console.log("DB connection error", dbError);
   });
+
+var cors = require("cors");
+
+server.use(cors()); // Use this after the variable declaration
 
 server.get("/", function (req, res) {
   res.send("Hello!");

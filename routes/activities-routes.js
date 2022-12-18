@@ -29,7 +29,7 @@ router.post("/add", function (req, res) {
 router.post("/update", function (req, res) {
   ActivityModel.findOneAndUpdate(
     {
-      _id: req.body._id,
+      providerID: req.body.providerID,
     },
     {
       title: req.body.title,
