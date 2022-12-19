@@ -138,9 +138,9 @@ export default function LoginS() {
       return <li>{str}</li>
   }
 
-  if(loggedIn || formState === "success") {
+  if(formState === "success") {
       return (
-          <Redirect to="/profile" />
+          <Redirect to="/" />
       )
   }
   else {
@@ -227,6 +227,7 @@ export default function LoginS() {
                     variant="contained"
                     sx={{ mt: 3, mb: 2 }}
                     style={{ backgroundColor: "#297373"}}
+                    onClick={login}
                   >
                     Sign In
                   </Button>

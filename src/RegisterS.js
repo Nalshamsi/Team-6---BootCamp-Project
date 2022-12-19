@@ -239,6 +239,7 @@ export default function RegisterS() {
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
               style={{ backgroundColor: "#297373"}}
+              onClick={register}
             > 
               Sign Up
             </Button>
@@ -272,7 +273,7 @@ export default function RegisterS() {
         {
             formState === "success" &&
             <Alert severity="success">
-                You have logged in successfully!
+                You have signed up successfully!
             </Alert>
         }
     </Box>
