@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 //Schema
 const ProviderSchema = new mongoose.Schema(
     {
-        brandName: {
+        name: {
             type: String,
             required: true,
         },
@@ -13,15 +13,11 @@ const ProviderSchema = new mongoose.Schema(
         },
         phone: {
             type: String,
-            required: true,
+            required: false,
         },
         password: {
             type: String,
             required: true,
-        },
-        dob: {
-            type: Date,
-            required: false,
         },
         avatar: {
             type: String,
