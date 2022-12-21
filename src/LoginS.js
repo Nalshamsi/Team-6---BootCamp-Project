@@ -36,14 +36,6 @@ const theme = createTheme();
 
 
 export default function LoginS() {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
-  };
 
     // The states are: 
     // (1) null, (2) "client error", (3) "backend error", (4) "loading", (5) "success"
@@ -89,7 +81,7 @@ export default function LoginS() {
           formData.append('password', passwordField.value);
 
           fetch(
-              `${process.env.REACT_APP_BACKEND_ENDPOINT} /users/login`,
+              `${process.env.REACT_APP_BACKEND_ENDPOINT}/users/login`,
               {
                   'method': 'POST',
                   'body': formData
@@ -183,7 +175,7 @@ export default function LoginS() {
               <Typography component="h1" variant="h5">
                 Sign in
               </Typography>
-              <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
+              <Box noValidate sx={{ mt: 1 }}>
                 <TextField
                   margin="normal"
                   required={true}

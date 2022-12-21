@@ -34,14 +34,6 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function RegisterS() {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
-  };
 
   // The states are: 
     // (1) null, (2) "client error", (3) "backend error", (4) "loading", (5) "success"
@@ -175,7 +167,7 @@ export default function RegisterS() {
           <Typography component="h1" variant="h5">
             Sign up
           </Typography>
-          <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
+          <Box noValidate sx={{ mt: 3 }}>
             <Grid container spacing={2}>
               <Grid item xs={12}>
                 <TextField
@@ -229,6 +221,11 @@ export default function RegisterS() {
                   control={<Checkbox value="allowExtraEmails" color="primary" />}
                   label="I agree to all Terms & Conditions."
                   required={true}
+                  inputRef={ 
+                    function( thisElement ){
+                        termsConditionsField = thisElement;
+                    } 
+                  }
                 />
               </Grid>
             </Grid>

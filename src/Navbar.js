@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { UserContext } from './UserContext';
+
 import {
   MDBNavbar,
   MDBContainer,
@@ -14,8 +16,18 @@ import {
   MDBDropdownItem,
 } from 'mdb-react-ui-kit';
 
-function Navbar() {
+function Navbar(props) {
+
+  const { loggedIn, logoutUser } = React.useContext(UserContext)
   
+  let currentPath = props.path;
+
+  let homeClass = currentPath === '/' ? 'active' : '';
+  let aboutClass = currentPath === '/about' ? 'active' : '';
+  let activityClass = currentPath === '/activity' ? 'active' : '';
+  let loginClass = currentPath === '/login' ? 'active' : '';
+
+
   return (
     <div id="navbar">
           <a href="/">
@@ -24,14 +36,14 @@ function Navbar() {
             height="40"
             viewBox='0 0 49 40'
             fill='none' 
-            url="./Images/Adlogo.svg"></svg>
+            url={'/'}></svg>
           </a>
         <a href="#default" id="logo">Adventurers</a>
         <div id="navbar-right">
-          <a className="active" href="/">Home</a>
-          <a href="/about">About</a>
-          <a href="/activity">Activities</a>
-          <a href="/login">Login</a>
+          <a className={`nav-link ${homeClass}`} href="/">Home</a>
+          <a className={`nav-link ${aboutClass}`} href="/about">About</a>
+          <a className={`nav-link ${activityClass}`} href="/activity">Activities</a>
+          <a className={`nav-link ${loginClass}`} href="/login">Login</a>
         </div>
       </div>
   );

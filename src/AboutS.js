@@ -1,16 +1,7 @@
 import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
 import Button from '@mui/material/Button';
-import CameraIcon from '@mui/icons-material/PhotoCamera';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import CssBaseline from '@mui/material/CssBaseline';
-import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
 import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import Link from '@mui/material/Link';
@@ -61,7 +52,7 @@ export default function AboutS() {
               About Us
             </Typography>
             <Typography variant="h5" align="center" color="text.secondary" paragraph>
-              We are a place that is designed to help you find and check everything off of your bucket list!Looking for a new activity to do but don't know where to go? We are the place for you!
+              We are a place that is designed to help you find and check everything off of your bucket list!Looking for a new activity to do but don"'"t know where to go? We are the place for you!
             </Typography>
             <Stack
               sx={{ pt: 4 }}
@@ -76,17 +67,6 @@ export default function AboutS() {
         </Box>
           {/* End hero unit */}
       </main>
-      {/* Footer */}
-        <Typography
-          variant="subtitle1"
-          align="center"
-          color="text.secondary"
-          component="p"
-        >
-          Subscribe to continue getting updates!
-        </Typography>
-        <Copyright />
-      {/* End footer */}
     </ThemeProvider>
   );
 }

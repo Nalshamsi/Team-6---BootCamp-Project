@@ -3,14 +3,17 @@ import { BrowserRouter, Switch } from 'react-router-dom';
 import HomeScreen from './HomeScreen';
 import LayoutRoute from './LayoutRoute';
 import GuestLayoutRoute from './GuestLayoutRoute';
-import { Login } from '@mui/icons-material';
+import PrivateLayoutRoute from './PrivateLayoutRoute';
 import LoginS from './LoginS'
 import RegisterS from './RegisterS';
 import ActivitiesScreen from './ActivitiesScreen';
 import AboutS from './AboutS';
+import ProfileScreen from './ProfileScreen';
 
 
 function App() {
+
+
     return(
         <BrowserRouter>
             <Switch>

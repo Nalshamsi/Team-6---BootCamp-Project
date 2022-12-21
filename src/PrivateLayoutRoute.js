@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Route, Redirect } from 'react-router-dom';
-import AppBar from './AppBar.js';
-import Footer from './Footer.js';
+import Navbar from './Navbar.js';
+// import Footer from './Footer.js';
 import { UserContext } from './UserContext.js';
 
 function PrivateLayoutRoute(props) {
@@ -12,13 +12,12 @@ function PrivateLayoutRoute(props) {
         return (
             <React.Fragment>
 
-                <AppBar/>
+                <Navbar/>
                 <Route 
                     path={props.path} 
                     exact={props.exact} 
                     component={props.component}
                 />
-                <Footer />
 
             </React.Fragment>
         )
