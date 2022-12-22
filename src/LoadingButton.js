@@ -23,7 +23,6 @@ function LoadingButton() {
     style={{backgroundColor: "#297373", borderColor: "#297373"}}
       disabled={isLoading}
       onClick={!isLoading ? handleClick : null}
-      href="/activity"
     >
       {isLoading ? 'Loading…' : "Let's Go!"}
     </Button>

@@ -15,41 +15,54 @@ import FormLabel from "@mui/material/FormLabel";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
-import Alert from "@mui/material/Alert";
 
 const theme = createTheme();
 
 export default function AddActivity() {
-  const [title, setTitle] = React.useState("");
-  const [description, setDescription] = React.useState("");
-  const [city, setCity] = React.useState("");
-  const [duration, setDuration] = React.useState("");
+  const [user, setUser] = React.useState([]);
+  const [title, setTitle] = React.useState("jamelah");
+  const [description, setDescription] = React.useState("farhan");
+  const [city, setCity] = React.useState("jamelah@gmail.com");
+  const [duration, setDuration] = React.useState("123123");
   const [date, setDate] = React.useState(null);
   const [location, setLocation] = React.useState(null);
-  const [gender, setGender] = React.useState("");
+  const [gender, setGender] = React.useState("female");
 
   const handleChange = (event) => {
     setGender(event.target.value);
   };
 
   const handleSubmit = async (event, id, i) => {
+    // event.preventDefault();
+    // console.log(title);
+    // console.log(description);
+    // console.log(city);
+    // console.log(duration);
+    // console.log(date);
+    // console.log(location);
+    // console.log(gender);
+
     try {
-      const data = await axios.post(`http://localhost:3001/activities/add`, {
-        title: title,
-        description: description,
-        city: city,
-        duration: duration,
-        date: date,
-        location: location,
-        gender: gender,
-        providerID: "638b615c2c5292445520aa2b",
-      });
-    } catch (error) {
-      return (
-        <Alert severity="error">This is an error alert — check it out!</Alert>
+      const data = await axios.post(`http://localhost:3007/activities/add`,
+        {
+          title: title,
+          description: description,
+          city: city,
+          duration: duration,
+          date: date,
+          location: location,
+          gender: gender,
+
+        }
       );
+      const copyArray = [...user]
+      copyArray[i] = data.data
+      setUser(copyArray)
+      console.log(copyArray);
+
+    } catch (error) {
+      console.log(error, 'catch error');
     }
-    // Go to My activites
   };
 
   return (
@@ -57,6 +70,7 @@ export default function AddActivity() {
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Box
+          onSubmit={handleSubmit}
           sx={{
             marginTop: 8,
             display: "flex",
@@ -68,7 +82,7 @@ export default function AddActivity() {
           {/* <Avatar  sx={{ m: 1, bgcolor: 'primary.main' }}>
       
           </Avatar> */}
-          <Typography component="h1" variant="h5" color={"#39393A"}>
+          <Typography component="h1" variant="h5" color={'#39393A'}>
             Add New Activity
           </Typography>
           <Box
@@ -144,12 +158,13 @@ export default function AddActivity() {
               onChange={(event) => setLocation(event.target.value)}
               margin="normal"
               fullWidth
-              color="info"
+              color='info'
               id="location"
               label="Location"
               name="location"
               autoComplete="location"
               autoFocus
+
             />
 
             <FormControl sx={{ mt: 2 }}>

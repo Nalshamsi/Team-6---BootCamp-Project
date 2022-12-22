@@ -1,5 +1,12 @@
 import React, { useState } from 'react';
+import { useEffect } from "react";
 import { UserContext } from './UserContext';
+import { Typography } from '@mui/material';
+import MenuItem from '@mui/material/MenuItem';
+import { Link as ReactLink } from 'react-router-dom';
+import Button from '@mui/material/Button';
+import Avatar from '@mui/material/Avatar';
+import Box from '@mui/material/Box';
 
 import {
   MDBNavbar,
@@ -17,8 +24,6 @@ import {
 } from 'mdb-react-ui-kit';
 
 function Navbar(props) {
-
-  const { loggedIn, logoutUser } = React.useContext(UserContext)
   
   let currentPath = props.path;
 
@@ -26,7 +31,6 @@ function Navbar(props) {
   let aboutClass = currentPath === '/about' ? 'active' : '';
   let activityClass = currentPath === '/activity' ? 'active' : '';
   let loginClass = currentPath === '/login' ? 'active' : '';
-
 
   return (
     <div id="navbar">
@@ -36,7 +40,7 @@ function Navbar(props) {
             height="40"
             viewBox='0 0 49 40'
             fill='none' 
-            url={'/'}></svg>
+            xlmns="./Images/adlogo.svg"></svg>
           </a>
         <a href="#default" id="logo">Adventurers</a>
         <div id="navbar-right">
@@ -44,6 +48,7 @@ function Navbar(props) {
           <a className={`nav-link ${aboutClass}`} href="/about">About</a>
           <a className={`nav-link ${activityClass}`} href="/activity">Activities</a>
           <a className={`nav-link ${loginClass}`} href="/login">Login</a>
+
         </div>
       </div>
   );

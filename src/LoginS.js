@@ -36,7 +36,7 @@ const theme = createTheme();
 
 
 export default function LoginS() {
-
+    
     // The states are: 
     // (1) null, (2) "client error", (3) "backend error", (4) "loading", (5) "success"
     var [formState, setFormState] = useState(null);
@@ -132,7 +132,7 @@ export default function LoginS() {
 
   if(formState === "success") {
       return (
-          <Redirect to="/" />
+          <Redirect to="/update" />
       )
   }
   else {

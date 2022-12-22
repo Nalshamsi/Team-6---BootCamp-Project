@@ -9,6 +9,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import axios from 'axios'
+import { Link } from 'react-router-dom';
 
 
 const theme = createTheme();
@@ -16,8 +17,7 @@ const theme = createTheme();
 export default function UpdateUser () {
 
     const [user ,setUser]=React.useState([]);
-    const [firstName,setFirstName]=React.useState("jamelah");
-    const [lastName,setLastName]=React.useState("farhan");
+    const [name,setName]=React.useState("jamelah");
     const [email,setEmail]=React.useState("jamelah@gmail.com");
     const [phone,setPhone]=React.useState("123123");
     const [dob,setDob]=React.useState("22-10-2020");
@@ -25,8 +25,7 @@ export default function UpdateUser () {
   
   const handleSubmit  = async(event, id,i) => {
   event.preventDefault();
-  console.log(firstName); 
-  console.log(lastName);
+  console.log(name); 
   console.log(email);
   console.log(phone);
   console.log(dob);
@@ -35,8 +34,7 @@ export default function UpdateUser () {
   try {
  const data= await axios.post(`http://localhost:3007/update${id}`,
 {
-    firstName:firstName,
-    lastName:lastName,
+    name:name,
     email:email,
     phone:phone,
     dob:dob,
@@ -57,6 +55,11 @@ console.log(copyArray);
   return (
     
     <ThemeProvider theme={theme}>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Box onSubmit={handleSubmit}
@@ -76,25 +79,15 @@ console.log(copyArray);
           <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
             <TextField
 
-            onChange={(event)=>setFirstName(event.target.value)}
+            onChange={(event)=>setName(event.target.value)}
               margin="normal"
               fullWidth
               id="First Name"
-              label="First Name"
-              name="firstName"
-              autoComplete="firstName"
+              label="Name"
+              name="name"
+              autoComplete="name"
               autoFocus
             
-            />
-             <TextField
-             onChange={(event)=>setLastName(event.target.value)}
-              margin="normal"
-              fullWidth
-              id="lastName"
-              label="Last Name"
-              name="lastName"
-              autoComplete="lastName"
-             
             />
              <TextField
              onChange={(event)=>setEmail(event.target.value)}
@@ -116,19 +109,6 @@ console.log(copyArray);
               autoComplete="phone"
               autoFocus
               // type={'number'}
-            />
-          
-
-<TextField
-onChange={(event)=>setDob(event.target.value)}
-              margin="normal"
-              fullWidth
-              id="dob"
-           
-              name="dob"
-              autoComplete="dob"
-              autoFocus
-              type={'date'}
             />
                <TextField
                onChange={(event)=>setPassword(event.target.value)}
@@ -154,11 +134,12 @@ onChange={(event)=>setDob(event.target.value)}
               sx={{ mt: 3, mb: 2 }}
               style={{
                
-                backgroundColor: "#297373",
-               
+                backgroundColor: "#297373", 
+            }}
+            onClick={function() {
+              Link.href = "/profile"
             }}
             >
-            
             Update
             </Button>
          
@@ -170,3 +151,4 @@ onChange={(event)=>setDob(event.target.value)}
     
   );
 }
+
