@@ -8,26 +8,31 @@ const passport = require('passport');
 
 const ActivityModel = require('../models/ActivityModel.js');
 
-router.post('/create',
+
+router.post('/add',
 function(req, res) {
 
-    var newDocument = {
-        "title": req.body.title,
-        "date": req.body.date,
-        "location": req.body.location
+    let newDocument = {
+        title: req.body.title,
+        description: req.body.description,
+        city: req.body.city,
+        duration: req.body.duration,
+        date: req.body.date,
+        location: req.body.location,
     };
 
-    ProductModel
+    ActivityModel
     .create(newDocument)
     .then(
         function(dbDocument) {
-            res.json(dbDocument);
+            res.json(dbDocument)
         }
     )
     .catch(
-        function(dbError) {
-            console.log(dbError);
-            res.send("Error occured /avtivities/create");
+        function(error) {
+            console.log('/add error', error);
+
+            res.send('An error occured');
         }
     );
 }
@@ -195,5 +200,34 @@ passport.authenticate('jwt', {session: false}),
         )
     }
 )
+
+router.post('/apply',
+function(req, res) {
+
+    let newDocument = {
+        name: req.body.name,
+        email: req.body.email,
+        phone: req.body.phone,
+        gender: req.body.gender,
+        age: req.body.age,
+      
+    };
+
+    UserModel
+    .create(newDocument).populate("ActivityModel")
+    .then(
+        function(dbDocument) {
+            res.json(dbDocument)
+        }
+    )
+    .catch(
+        function(error) {
+            console.log('/add error', error);
+
+            res.send('An error occurred');
+        }
+    );
+}
+);
 
 module.exports = router;
