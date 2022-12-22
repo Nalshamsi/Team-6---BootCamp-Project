@@ -39,7 +39,7 @@ const useStyles = makeStyles({
   },
 });
 
-function ActivityCard(props) {
+function MyActivityCard(props) {
   const classes = useStyles();
 
   var date = new Date(props.product.date);
@@ -139,10 +139,13 @@ function ActivityCard(props) {
 
       <CardActions>
         <Button variant="contained" size="small" className={classes.button}>
-          Apply
+          Edit
+        </Button>
+        <Button variant="contained" size="small" className={classes.button}>
+          View Applicants
         </Button>
       </CardActions>
     </Card>
   );
 }
-export default ActivityCard;
+export default MyActivityCard;
