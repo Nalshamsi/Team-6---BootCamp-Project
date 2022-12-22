@@ -1,182 +1,102 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import ActivityCard from "./Provider/ActivityCard";
+import { Grid } from "@material-ui/core";
 
 function ActivitiesScreen() {
-    return (
-        <React.Fragment>
-            <header className="d-flex justify-content-center py-3 mb-5">
-                
-            </header>
+  const url = "http://localhost:3001/activities/find";
+  const [products, setProducts] = useState({
+    loading: false,
+    data: null,
+    error: false,
+  });
 
-            <main>
+  useEffect(() => {
+    setProducts({
+      loading: true,
+      data: null,
+      error: false,
+    });
+    axios
+      .post(url)
+      .then((response) => {
+        setProducts({
+          loading: false,
+          data: response.data,
+          error: false,
+        });
+      })
+      .catch(() => {
+        setProducts({
+          loading: false,
+          data: null,
+          error: true,
+        });
+      });
+  }, [url]);
 
-            <section className="py-5 text-center container">
-                <div className="row py-lg-5">
-                <div className="col-lg-6 col-md-8 mx-auto">
-                    <h1 className="fw-light">Activities</h1>
-                </div>
-                </div>
-            </section>
+  let content = null;
 
-          <div className="album py-5 bg-light">
-                <div className="container">
+  if (products.error) {
+    content = <p>There was an error please refresh or try again later.</p>;
+  }
 
-                <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-                    <div className="col">
-                    <div className="card shadow-sm">
-                        <svg className="bd-placeholder-img card-img-top" width="100%" height="225" src="./Images/Pottery.jpg" role="img" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#555905c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+  if (products.loading) {
+    // content = <Loader></Loader>;
+    content = <p>Loading...</p>;
+  }
 
-                        <div className="card-body">
-                        <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        <div className="d-flex justify-content-between align-items-center">
-                            <div className="btn-group">
-                            <button type="button" className="btn btn-sm btn-outline-secondary" href="/apply">Apply</button>
-                            </div>
-                            <small className="text-muted">90 mins</small>
-                        </div>
-                        </div>
-                    </div>
-                    </div>
-                    <div className="col">
-                    <div className="card shadow-sm">
-                        <svg className="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#555905c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+  if (products.data) {
+    content = products.data.map((product) => (
+      <Grid item xs={12} sm={6} md={3}>
+        <div key={product.id}>
+          <ActivityCard product={product} />
+        </div>
+      </Grid>
+    ));
+  }
+  return (
+    <React.Fragment>
+      <header className="d-flex justify-content-center py-3 mb-5"></header>
 
-                        <div className="card-body">
-                        <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        <div className="d-flex justify-content-between align-items-center">
-                            <div className="btn-group">
-                            <button type="button" className="btn btn-sm btn-outline-secondary" href="/apply">Apply</button>
-                            </div>
-                            <small className="text-muted">90 mins</small>
-                        </div>
-                        </div>
-                    </div>
-                    </div>
-                    <div className="col">
-                    <div className="card shadow-sm">
-                        <svg className="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#555905c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-
-                        <div className="card-body">
-                        <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        <div className="d-flex justify-content-between align-items-center">
-                            <div className="btn-group">
-                            <button type="button" className="btn btn-sm btn-outline-secondary" href="/apply">Apply</button>
-                            </div>
-                            <small className="text-muted">90 mins</small>
-                        </div>
-                        </div>
-                    </div>
-                    </div>
-
-                    <div className="col">
-                    <div className="card shadow-sm">
-                        <svg className="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#555905c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-
-                        <div className="card-body">
-                        <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        <div className="d-flex justify-content-between align-items-center">
-                            <div className="btn-group">
-                            <button type="button" className="btn btn-sm btn-outline-secondary" href="/apply">Apply</button>
-                            </div>
-                            <small className="text-muted">90 mins</small>
-                        </div>
-                        </div>
-                    </div>
-                    </div>
-                    <div className="col">
-                    <div className="card shadow-sm">
-                        <svg className="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#555905c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-
-                        <div className="card-body">
-                        <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        <div className="d-flex justify-content-between align-items-center">
-                            <div className="btn-group">
-                            <button type="button" className="btn btn-sm btn-outline-secondary" href="/apply">Apply</button>
-                            </div>
-                            <small className="text-muted">90 mins</small>
-                        </div>
-                        </div>
-                    </div>
-                    </div>
-                    <div className="col">
-                    <div className="card shadow-sm">
-                        <svg className="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#555905c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-
-                        <div className="card-body">
-                        <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        <div className="d-flex justify-content-between align-items-center">
-                            <div className="btn-group">
-                            <button type="button" className="btn btn-sm btn-outline-secondary" href="/apply">Apply</button>
-                            </div>
-                            <small className="text-muted">90 mins</small>
-                        </div>
-                        </div>
-                    </div>
-                    </div>
-
-                    <div className="col">
-                    <div className="card shadow-sm">
-                        <svg className="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#555905c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-
-                        <div className="card-body">
-                        <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        <div className="d-flex justify-content-between align-items-center">
-                            <div className="btn-group">
-                            <button type="button" className="btn btn-sm btn-outline-secondary" href="/apply">Apply</button>
-                            </div>
-                            <small className="text-muted">90 mins</small>
-                        </div>
-                        </div>
-                    </div>
-                    </div>
-                    <div className="col">
-                    <div className="card shadow-sm">
-                        <svg className="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#555905c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-
-                        <div className="card-body">
-                        <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        <div className="d-flex justify-content-between align-items-center">
-                            <div className="btn-group">
-                            <button type="button" className="btn btn-sm btn-outline-secondary" href="/apply">Apply</button>
-                            </div>
-                            <small className="text-muted">90 mins</small>
-                        </div>
-                        </div>
-                    </div>
-                    </div>
-                    <div className="col">
-                    <div className="card shadow-sm">
-                        <svg className="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#555905c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-
-                        <div className="card-body">
-                        <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        <div className="d-flex justify-content-between align-items-center">
-                            <div className="btn-group">
-                            <button type="button" className="btn btn-sm btn-outline-secondary" href="/apply">Apply</button>
-                            </div>
-                            <small className="text-muted">90 mins</small>
-                        </div>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-                </div>
+      <main>
+        <section className="py-3 text-center container">
+          <div className="row py-lg-5">
+            <div className="col-lg-6 col-md-8 mx-auto">
+              <h1 className="fw-light">Activities</h1>
             </div>
+          </div>
+        </section>
 
-            </main>
+        {/* <div className="album py-5 bg-light"> */}
+        <Grid container spacing={1}>
+          {content}
+        </Grid>
+        {/* <div className="row-sm-4">{content}</div> */}
+        {/* </div> */}
+      </main>
 
-            <footer className="text-muted py-5">
-            <div className="container">
-                <p className="float-end mb-1">
-                <a href="#">Back to top</a>
-                </p>
-                <p className="mb-1">Album example is &copy; Bootstrap, but please download and customize it for yourself!</p>
-                <p className="mb-0">New to Bootstrap? <a href="/">Visit the homepage</a> or read our <a href="/docs/5.2/getting-started/introduction/">getting started guide</a>.</p>
-            </div>
-            </footer>
-            
-        </React.Fragment>
-    )
+      <footer className="text-muted py-5">
+        <div className="container">
+          <p className="float-end mb-1">
+            <a href="#">Back to top</a>
+          </p>
+          <p className="mb-1">
+            Album example is &copy; Bootstrap, but please download and customize
+            it for yourself!
+          </p>
+          <p className="mb-0">
+            New to Bootstrap? <a href="/">Visit the homepage</a> or read our{" "}
+            <a href="/docs/5.2/getting-started/introduction/">
+              getting started guide
+            </a>
+            .
+          </p>
+        </div>
+      </footer>
+    </React.Fragment>
+  );
 }
 
 export default ActivitiesScreen;
