@@ -3,14 +3,12 @@ import Box from '@mui/material/Box';
 import { Redirect, Route } from 'react-router-dom';
 import Navbar from './Navbar';
 import { UserContext } from './UserContext';
-import Footer from './Footer';
-
 
 function GuestLayoutRoute(props) {
 
     const {loggedIn} = UserContext;
 
-    if (loggedIn === false) {
+    if (!loggedIn) {
         return (
             <Box sx={{
                 display: 'flex',
@@ -19,7 +17,7 @@ function GuestLayoutRoute(props) {
             }}>
                 <Navbar {...props}/>
                 <Route path={props.path} exact={props.exact} component={props.component} />
-                <Footer/>
+
             </Box>
         )
     } else {

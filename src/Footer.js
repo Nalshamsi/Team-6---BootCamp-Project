@@ -34,7 +34,9 @@ export default function Footer() {
     >
       <Container maxWidth="sm">
         <Typography variant="body1">
-        
+        <div className="container">
+        <a href="#">Back to top</a>
+        </div>
         </Typography>
         <Copyright />
       </Container>

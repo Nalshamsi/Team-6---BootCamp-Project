@@ -1,52 +1,16 @@
 const express = require('express');
-const server = express();
-const bodyParser = require('body-parser');
-const mongoose = require('mongoose');
-require('dotenv').config();
-
-const usersRoutes = require('./routes/users-routes.js');
-const providersRoutes = require('./routes/providers-routes.js');
-const activitiesRoutes = require('./routes/activities-routes.js');
-
-
-// Configure middleware for express
-server.use( bodyParser.urlencoded( {extended: false}) );
-server.use( bodyParser.json() );
-
-const dbURL = process.env.DB_URL;
-
-const dbConfig = {
-    'useNewUrlParser': true,
-    'useUnifiedTopology': true
-};
-
-mongoose
-.connect(dbURL, dbConfig)
-.then(
-    function() {
-        console.log('DB is connected.')
-    }
-)
-.catch(
-    function(dbError) {
-        console.log('DB connection error', dbError)
-    }
-);
-
-server.get('/',
-    function(req, res) {
-        res.send("Hello!")
-    }
-);
-
-server.use('/users', usersRoutes);
-server.use('/providers', providersRoutes);
-server.use('/activities', activitiesRoutes);
-
-
-server.listen(
-    process.env.PORT,
-    function() {
-        console.log('Running on http://localhost:3001/')
-    }
-);
+const favicon = require('express-favicon');
+const path = require('path');
+const port = process.env.PORT || 3012;
+const app = express();
+app.use(favicon(__dirname + '/build/favicon.ico'));
+// the __dirname is the current directory from where the script is running
+app.use(express.static(__dirname));
+app.use(express.static(path.join(__dirname, 'build')));
+app.get('/ping', function (req, res) {
+ return res.send('pong');
+});
+app.get('/*', function (req, res) {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
+app.listen(3001);

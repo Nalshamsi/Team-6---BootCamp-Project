@@ -10,12 +10,11 @@ const LOGOUT_USER = "LOGOUT_USER";
 
 // Declare an initial state for the Context component (i.e, the global state)
 const initialState = {
-    firstName: localStorage.getItem('firstName') || undefined,
-    lastName: localStorage.getItem('lastName') || undefined,
+    name: localStorage.getItem('name') || undefined,
     jsonwebtoken: localStorage.getItem('jsonwebtoken') || undefined,
     loggedIn: (localStorage.getItem('jsonwebtoken') && localStorage.getItem('jsonwebtoken') !== "undefined") || false,
     email: localStorage.getItem('email') || undefined,
-    avatar: localStorage.getItem('avatar') || undefined
+    avatar: localStorage.getItem('avatar') || undefined,
 }
 
 
@@ -45,8 +44,7 @@ export const UserContextProvider = ({ children }) => {
         (payload) => {
 
             // Set the values in the user's computer
-            localStorage.setItem('firstName', payload.firstName);
-            localStorage.setItem('lastName', payload.lastName);
+            localStorage.setItem('name', payload.name);
             localStorage.setItem('email', payload.email);
             localStorage.setItem('avatar', payload.avatar);
             localStorage.setItem('jsonwebtoken', payload.jsonwebtoken);
@@ -65,8 +63,7 @@ export const UserContextProvider = ({ children }) => {
         (payload) => {
 
             // Set the values in the user's computer
-            localStorage.setItem('firstName', null);
-            localStorage.setItem('lastName', null);
+            localStorage.setItem('name', null);
             localStorage.setItem('email', null);
             localStorage.setItem('avatar', null);
             localStorage.setItem('jsonwebtoken', null);
@@ -85,8 +82,7 @@ export const UserContextProvider = ({ children }) => {
     return (
         <UserContext.Provider 
             value={{
-                firstName: state.firstName,
-                lastName: state.lastName,
+                name: state.name,
                 jsonwebtoken: state.jsonwebtoken,
                 loggedIn: state.loggedIn,
                 avatar: state.avatar,

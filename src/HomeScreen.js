@@ -1,12 +1,15 @@
 import React from 'react';
-import Navbar from './Navbar';
-import Carouselsection from './Carouselsection';
+import HeroCarousel from './HeroCarousel';
+import ProfileScreen from './ProfileScreen';
+
+
 
 function HomeScreen() {
 
   return (
       <div>
-        <Carouselsection/>
+      <HeroCarousel />
+      
       </div>
     
       

@@ -1,18 +1,62 @@
 {
-  "name": "final-project",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "start": "node server.js",
-    "start-dev": "nodemon server.js"
-  },
-  "author": "",
-  "license": "ISC",
+  "name": "final-project-frontend",
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
-    "dotenv": "^16.0.3",
-    "express": "^4.18.2",
-    "mongoose": "^6.7.5",
-    "nodemon": "^2.0.20"
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "@mui/icons-material": "^5.10.16",
+    "@mui/joy": "^5.0.0-alpha.59",
+    "@mui/material": "^5.11.1",
+    "@mui/styled-engine-sc": "^5.10.16",
+    "@mui/x-date-pickers": "^5.0.11",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "axios": "^1.2.1",
+    "bcryptjs": "^2.4.3",
+    "bootstrap": "^5.2.3",
+    "cloudinary": "^1.33.0",
+    "date-fns": "^2.29.3",
+    "dayjs": "^1.11.7",
+    "hero-carousel": "^1.1.2",
+    "jsonwebtoken": "^8.5.1",
+    "mdb-react-ui-kit": "^5.0.0",
+    "mui": "^0.0.1",
+    "passport": "^0.6.0",
+    "passport-jwt": "^4.0.0",
+    "react": "^18.2.0",
+    "react-bootstrap": "^2.7.0",
+    "react-dom": "^18.2.0",
+    "react-responsive-carousel": "^3.2.23",
+    "react-router-dom": "^5.3.4",
+    "react-scripts": "5.0.1",
+    "styled-components": "^5.3.6",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "start": "",
+    "start-dev": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
