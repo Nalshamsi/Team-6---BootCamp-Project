@@ -27,10 +27,6 @@ const ActivitySchema = new mongoose.Schema(
             type: String,
             required: true,
           },
-          gender: {
-            type: String,
-            required: false,
-          },
           photo: {
             type: String, // Google it
             required: false,
